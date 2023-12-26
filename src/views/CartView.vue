@@ -1,10 +1,11 @@
 <template>
-  <h2>HOME</h2>
+  <h2>CART</h2>
 </template>
 
 <script lang="ts">
 import { defineComponent } from 'vue'
+
 export default defineComponent({
-  name: 'HomeView'
+  name: 'CartView'
 })
 </script>
