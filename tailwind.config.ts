@@ -3,19 +3,31 @@ import type { Config } from 'tailwindcss'
 const config: Config = {
   content: [
     "./index.html",
-    "./src/**/*.{vue, js, ts, jsx, tsx}",
+    "./src/**/*.{vue,js,ts,jsx,tsx}",
   ],
   theme: {
     extend: {
       fontFamily: {
-        logo: ['Disket Mono', 'monospace'],
-        h1: ['Roboto', '20px', 'regular'],
-        h2: ['Roboto', '18px', 'regular'],
-        h3: ['Roboto', '16px', 'regular'],
-        h4: ['Roboto', '16px', '300'],
-        h5: ['Roboto', '14px', 'regular'],
-        h6: ['Roboto', '14px', '300'],
-        h7: ['Roboto', '14', '300', 'line-through'],
+        'roboto': ['Roboto', 'sans-serif'],
+      },
+      fontSize: {
+        'h1': '20px',
+        'h2': '18px',
+        'h3': '16px',
+        'h4': '16px',
+        'h5': '14px',
+        'h6': '14px',
+      },
+      fontWeight: {
+        'h1': '400',
+        'h2': '400',
+        'h3': '400',
+        'h4': '300',
+        'h5': '400',
+        'h6': '300',
+      },
+      textDecoration: {
+        'h7': 'line-through',
       },
       colors: {
         navy: '#091D9E',
@@ -29,6 +41,6 @@ const config: Config = {
     },
   },
   plugins: [],
-}
+};
 
-export default config
+export default config;
