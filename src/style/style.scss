@@ -3,5 +3,27 @@
 @tailwind utilities;
 
 .container {
-    @apply max-w-screen-lg w-[370px] bg-white;
+    @apply max-w-screen-lg w-full bg-white flex flex-col justify-center items-center;
+}
+
+.px-base {
+    @apply px-[16px];
+}
+
+.custom-scrollbar {
+    overflow-x: scroll;
+    overflow-y: hidden;
+    scrollbar-width: thin;
+    scrollbar-color: transparent transparent;
+    
+    &::-webkit-scrollbar {
+        width: 8px;
+        height: 0px;
+    }
+    &::-webkit-scrollbar-thumb {
+        background-color: transparent;
+    } 
+    &::-webkit-scrollbar-track {
+        background-color: transparent;
+    }
 }

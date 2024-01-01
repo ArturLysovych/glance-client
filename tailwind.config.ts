@@ -25,9 +25,7 @@ const config: Config = {
         'h4': '300',
         'h5': '400',
         'h6': '300',
-      },
-      textDecoration: {
-        'h7': 'line-through',
+        'semibold': '600', 
       },
       colors: {
         navy: '#091D9E',
