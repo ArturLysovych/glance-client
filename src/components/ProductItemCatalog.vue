@@ -19,21 +19,29 @@
           </div>
           <div class="flex justify-center items-center gap-[20px]">
             <button class="shadow-xl w-[47px] h-[44px] rounded-[4px] flex items-center justify-center"><img src="../assets/images/home/heart.svg" alt=""></button>
-            <button class="bg-navy w-[143px] h-[44px] rounded-[8px] font-roboto font-medium text-h3 text-whiteSmoke">Add to cart</button>
+            <button class="bg-navy w-[143px] h-[44px] rounded-[8px] font-roboto font-medium text-h3 text-whiteSmoke"
+            @click="addToCart"
+            >Add to cart</button>
           </div>
         </div>
       </div>
 </template>
   
 <script lang="ts">
+import { PropType } from 'vue'
 import IProduct from '@/interfaces/index'
 
 export default {
   props: {
     product: {
-      type: Object,
-      required: true,
-    },
+      type: Object as PropType<IProduct>,
+      required: true
+    }
+  },
+  methods: {
+    addToCart() {
+        this.$emit('add-to-cart', this.product);
+    }
   },
   computed: {
     filteredProducts() {
