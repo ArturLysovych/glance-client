@@ -8,7 +8,7 @@ const routes: Array<RouteRecordRaw> = [
     component: HomeView
   },
   {
-    path: '/catalog',
+    path: '/catalog/:categoryName',
     name: 'catalog',
     component: () => import('../views/CatalogView.vue')
   },

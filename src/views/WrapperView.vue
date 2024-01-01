@@ -14,7 +14,7 @@
             <img src="@/assets/images/nav/icon-home.svg" alt="">
             <p class="font-roboto font-h3 text-h3 text-[#454545]">Home</p>
           </router-link>
-          <router-link class="flex flex-col items-center gap-[8px]" to="/catalog">
+          <router-link class="flex flex-col items-center gap-[8px]" to="/">
             <img src="@/assets/images/nav/icon-catalog.svg" alt="">
             <p class="font-roboto font-h3 text-h3 text-[#454545]">Catalog</p>
           </router-link>

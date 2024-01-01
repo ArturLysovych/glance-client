@@ -10,9 +10,11 @@
           <div class="h-[163px] w-[98px] flex flex-col justify-center items-center gap-[16px]"
             v-for="category of categories" :key="category.id"
           >
-            <div class="h-[128px] w-[98px] bg-[#D2D7FA] rounded-lg flex items-center justify-center">
-              <img class="scale-[.6]" :src="require(`../assets/images/home/category/${category.image}`)" alt="">
-            </div>
+          <router-link :to="{ name: 'catalog', params: { categoryName: category.name } }">
+              <div class="h-[128px] w-[98px] bg-[#D2D7FA] rounded-lg flex items-center justify-center">
+                <img class="scale-[.6]" :src="require(`../assets/images/home/category/${category.image}`)" alt="">
+              </div>
+            </router-link> 
             <h3 class="text-h3 font-roboto font-h4 text-[#000000]">{{ category.name }}</h3>
           </div>
         </div>
