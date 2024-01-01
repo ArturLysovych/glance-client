@@ -23,7 +23,7 @@
     <div class="w-full flex flex-col justify-start mt-[40px]">
       <h2 class="text-h1 font-roboto text-black font-h1 px-base">Discounts</h2>
       <div class="w-auto h-[435px] mt-[28px] flex items-center justify-start gap-[32px] py-[20px] border-y border-silver px-base custom-scrollbar">
-        <product-item
+        <ProductItemHome
           v-for="product of discountedProducts"
           :key="product.id"
           :product="product"
@@ -35,7 +35,7 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue'
-import ProductItem from '@/components/ProductItem.vue';
+import ProductItemHome from '@/components/ProductItemHome.vue';
 
 const categories = [
   { id: 1, name: 'Smartphones', image: 'smartphones.png' },
@@ -55,7 +55,7 @@ const discountedProducts = [
 export default defineComponent({
   name: 'HomeView',
   components: {
-    ProductItem,
+    ProductItemHome,
   },
   data() {
     return {
