@@ -40,7 +40,7 @@ export default {
   },
   methods: {
     addToCart() {
-        this.$emit('add-to-cart', this.product);
+      this.$emit('add-to-cart', this.product);
     }
   },
   computed: {
