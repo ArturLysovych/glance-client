@@ -21,7 +21,9 @@
     <div class="w-full py-[25px] flex flex-col justify-center items-center border-y border-silver font-roboto gap-[8px]" v-if="totalSum>0">
       <h3 class="text-[#454545] text-h4 font-medium">Totally</h3>
       <h2 class="text-black text-h1 font-semibold">{{ totalSum }}$</h2>
-      <button class="w-[267px] h-[49px] bg-navy rounded-[8px] text-whiteSmoke font-roboto text-h2 font-medium">Order</button>
+      <router-link to="/cart/ordering">
+        <button class="w-[267px] h-[49px] bg-navy rounded-[8px] text-whiteSmoke font-roboto text-h2 font-medium">Order</button>
+      </router-link>
     </div>
     <div class="w-full h-[calc(100vh-351px)] py-[25px] flex flex-col justify-between items-center font-roboto mt-[25px]" v-else>
       <p class="text-h1 font-medium text-black">Your shopping cart is empty</p>
