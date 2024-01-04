@@ -23,7 +23,7 @@
       <h2 class="text-black text-h1 font-semibold">{{ totalSum }}$</h2>
       <button class="w-[267px] h-[49px] bg-navy rounded-[8px] text-whiteSmoke font-roboto text-h2 font-medium">Order</button>
     </div>
-    <div class="w-full h-[calc(100vh-351px)] py-[25px] flex flex-col justify-between items-center border-y border-silver font-roboto mt-[25px]" v-else>
+    <div class="w-full h-[calc(100vh-351px)] py-[25px] flex flex-col justify-between items-center font-roboto mt-[25px]" v-else>
       <p class="text-h1 font-medium text-black">Your shopping cart is empty</p>
       <img class="h-[200px]" src="../assets/images/cart/cart.svg" alt="">
       <p class="text-[#454545] text-h2 font-h2">Add products from the catalog</p>
@@ -31,11 +31,24 @@
         <button class="w-[267px] h-[49px] bg-navy text-whiteSmoke text-h2 font-h2 rounded-[8px]">Choose a category</button>
       </router-link>
     </div>
+    <div class="w-full mt-[20px]" v-if="totalSum<=0">
+      <h2 class="text-[18px] text-center text-black font-semibold">You might like it</h2>
+      <div class="w-auto h-[435px] mt-[24px] flex items-center justify-start gap-[32px] py-[20px] border-y border-silver px-base custom-scrollbar">
+          <ProductItemHome
+            v-for="product of discountedProducts"
+            :key="product.id"
+            :product="product"
+            @add-to-cart="addToCart"
+          />
+      </div>
+    </div>
   </div>
 </template>
 
 <script lang="ts">
 import { defineComponent, PropType } from 'vue'
+import ProductItemHome from '@/components/ProductItemHome.vue';
+import { discountedProducts } from '@/constants/home.constants';
 import CartItem from '@/components/CartItem.vue';
 import IProduct from '@/interfaces/index'
 
@@ -48,12 +61,20 @@ export default defineComponent({
     }
   },
   components: {
-    CartItem,
+    CartItem, ProductItemHome
+  },
+  data() {
+    return {
+      discountedProducts
+    }
   },
   methods: {
     handleRemoveFromCart(itemId: string) {
       this.$emit('remove-from-cart', itemId);
     },
+    addToCart(product: IProduct) {
+      this.$emit('add-to-cart', product);
+    }
   },
   computed: {
     totalSum() {

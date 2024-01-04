@@ -27,6 +27,7 @@
           v-for="product of discountedProducts"
           :key="product.id"
           :product="product"
+          @add-to-cart="addToCart"
         />
       </div>
     </div>
@@ -37,11 +38,17 @@
 import { defineComponent } from 'vue'
 import ProductItemHome from '@/components/ProductItemHome.vue';
 import { categories, discountedProducts } from '@/constants/home.constants';
+import IProduct from '@/interfaces';
 
 export default defineComponent({
   name: 'HomeView',
   components: {
     ProductItemHome,
+  },
+  methods: {
+    addToCart(product: IProduct) {
+      this.$emit('add-to-cart', product);
+    }
   },
   data() {
     return {

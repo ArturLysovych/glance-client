@@ -16,17 +16,24 @@
         <h3 v-else class="text-red-500 font-roboto text-h3 font-light">Out of stock</h3>
         <button class="shadow-xl w-[35px] h-[32px] rounded-[4px] flex items-center justify-center"><img src="../assets/images/home/heart.svg" alt=""></button>
       </div>
-      <button class="bg-navy w-[131px] h-[44px] rounded-[8px] font-roboto font-medium text-h3 text-whiteSmoke">Add to cart</button>
+      <button class="bg-navy w-[131px] h-[44px] rounded-[8px] font-roboto font-medium text-h3 text-whiteSmoke"
+        @click="addToCart"
+      >Add to cart</button>
     </div>
 </template>
   
-<script lang="ts">
+<script lang="js">
 export default {
   props: {
     product: {
       type: Object,
       required: true,
     },
+  },
+  methods: {
+    addToCart() {
+      this.$emit('add-to-cart', this.product);
+    }
   },
 };
 </script>
