@@ -20,7 +20,7 @@
           <div class="flex justify-center items-center gap-[20px]">
             <button class="shadow-xl w-[47px] h-[44px] rounded-[4px] flex items-center justify-center"><img src="../assets/images/home/heart.svg" alt=""></button>
             <button class="bg-navy w-[143px] h-[44px] rounded-[8px] font-roboto font-medium text-h3 text-whiteSmoke"
-            @click="addToCart"
+              @click="addToCart"
             >Add to cart</button>
           </div>
         </div>

@@ -15,15 +15,15 @@
     <div class="w-full flex justify-end items-center px-base" v-if="totalSum>0">
       <span>Choose All <input type="checkbox"></span>
      </div>
-    <div class="w-full flex flex-col justify-center items-center mt-[20px]">
-      <CartItem v-for="cartItem in cart" :key="cartItem.id" :cartItem="cartItem" />
+    <div class="w-full min-h-[200px] flex flex-col justify-center items-center mt-[20px]" v-if="totalSum>0">
+      <CartItem v-for="cartItem in cart" :key="cartItem.id" :cartItem="cartItem" @remove-from-cart="handleRemoveFromCart" />
     </div>
-    <div class="w-full py-[25px] flex flex-col justify-between items-center border-y border-silver font-roboto" v-if="totalSum>0">
+    <div class="w-full py-[25px] flex flex-col justify-center items-center border-y border-silver font-roboto gap-[8px]" v-if="totalSum>0">
       <h3 class="text-[#454545] text-h4 font-medium">Totally</h3>
-      <h2 class="text-black text-h4 font-semibold">{{ totalSum }}$</h2>
+      <h2 class="text-black text-h1 font-semibold">{{ totalSum }}$</h2>
       <button class="w-[267px] h-[49px] bg-navy rounded-[8px] text-whiteSmoke font-roboto text-h2 font-medium">Order</button>
     </div>
-    <div class="w-full h-[calc(100vh-401px)] py-[25px] flex flex-col justify-between items-center border-y border-silver font-roboto" v-else>
+    <div class="w-full h-[calc(100vh-351px)] py-[25px] flex flex-col justify-between items-center border-y border-silver font-roboto mt-[25px]" v-else>
       <p class="text-h1 font-medium text-black">Your shopping cart is empty</p>
       <img class="h-[200px]" src="../assets/images/cart/cart.svg" alt="">
       <p class="text-[#454545] text-h2 font-h2">Add products from the catalog</p>
@@ -49,6 +49,11 @@ export default defineComponent({
   },
   components: {
     CartItem,
+  },
+  methods: {
+    handleRemoveFromCart(itemId: string) {
+      this.$emit('remove-from-cart', itemId);
+    },
   },
   computed: {
     totalSum() {

@@ -7,4 +7,5 @@ export default interface IProduct {
     price: number;
     oldPrice: number;
     inStock: boolean;
+    _id: string;
 }

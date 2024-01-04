@@ -8,10 +8,7 @@
           <input class="h-full w-full bg-transparent outline-none font-roboto text-h2 font-h2 text-[#454545]" type="text" placeholder="search">
         </div>
       </div>
-      <error-boundary>
-        
-      </error-boundary>
-      <router-view :products="products" :cart="JSON.parse(JSON.stringify([...cart]))" @add-to-cart="addToCart" />
+      <router-view :products="products" :cart="cart" @add-to-cart="addToCart" @remove-from-cart="removeFromCart" />
         <nav class="w-full h-[86px] border-t border-[#C1C1C1] flex justify-between items-center px-[30px]">
           <router-link class="flex flex-col items-center gap-[8px]" to="/">
             <img src="@/assets/images/nav/icon-home.svg" alt="">
@@ -23,7 +20,11 @@
           </router-link>
           <router-link class="flex flex-col items-center gap-[8px]" to="/cart">
             <img src="@/assets/images/nav/icon-basket.svg" alt="">
-            <p class="font-roboto font-h3 text-h3 text-[#454545]">Cart</p>
+            <p class="font-roboto font-h3 text-h3 text-[#454545] relative">Cart
+            <div class="h-[20px] w-[20px] bg-navy absolute text-whiteSmoke flex items-center justify-center top-[-35px] right-[-5px] rounded-full font-roboto text-[14px]">
+              {{ cart.length }}
+            </div>
+            </p>
           </router-link>
           <router-link class="flex flex-col items-center gap-[8px]" to="/profile">
             <img src="@/assets/images/nav/icon-profile.svg" alt="">
@@ -46,8 +47,12 @@ export default defineComponent({
     const products = ref<IProduct[]>([]);
     const cart = ref<IProduct[]>([]);
 
-    const addToCart = (product: IProduct) => {
+    const addToCart = (product: IProduct):void => {
       cart.value.push(product);
+    };
+
+    const removeFromCart = (id: number): void => {
+      cart.value = cart.value.filter((item: IProduct) => item.id !== id);
     };
 
     const fetchProducts = async () => {
@@ -67,6 +72,7 @@ export default defineComponent({
       products,
       cart,
       addToCart,
+      removeFromCart
     };
   },
   components: {
