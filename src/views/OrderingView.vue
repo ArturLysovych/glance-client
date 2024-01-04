@@ -119,7 +119,7 @@ export default defineComponent({
 
     const finishOrder = () => {
         if (isNameValid.value && isPhoneValid.value && isAddressValid.value) {
-            
+            axios.post('http://localhost:5000/mailer/send-email', getOrderInfo())
         } else {
             alert('Enter the data');
         }
