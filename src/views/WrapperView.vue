@@ -8,6 +8,9 @@
           <input class="h-full w-full bg-transparent outline-none font-roboto text-h2 font-h2 text-[#454545]" type="text" placeholder="search">
         </div>
       </div>
+      <error-boundary>
+        
+      </error-boundary>
       <router-view :products="products" :cart="JSON.parse(JSON.stringify([...cart]))" @add-to-cart="addToCart" />
         <nav class="w-full h-[86px] border-t border-[#C1C1C1] flex justify-between items-center px-[30px]">
           <router-link class="flex flex-col items-center gap-[8px]" to="/">
@@ -67,7 +70,7 @@ export default defineComponent({
     };
   },
   components: {
-    CatalogView
+    CatalogView,
   }
 });
 </script>

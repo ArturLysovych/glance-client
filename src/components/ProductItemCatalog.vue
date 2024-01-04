@@ -27,14 +27,11 @@
       </div>
 </template>
   
-<script lang="ts">
-import { PropType } from 'vue'
-import IProduct from '@/interfaces/index'
-
+<script lang="js">
 export default {
   props: {
     product: {
-      type: Object as PropType<IProduct>,
+      type: Object,
       required: true
     }
   },
@@ -48,9 +45,8 @@ export default {
       const categoryName = this.$route.params.categoryName;
       const categoryNameLower = Array.isArray(categoryName) ? categoryName[0].toLowerCase() : categoryName.toLowerCase();
       
-      return (this.$data as { products: IProduct[] }).products.filter(product => product.type.toLowerCase() === categoryNameLower);
+      return [this.product].filter(product => product.type.toLowerCase() === categoryNameLower);
     },
   },
 };
 </script>
-  

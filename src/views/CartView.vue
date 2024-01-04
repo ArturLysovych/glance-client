@@ -24,7 +24,12 @@
       <button class="w-[267px] h-[49px] bg-navy rounded-[8px] text-whiteSmoke font-roboto text-h2 font-medium">Order</button>
     </div>
     <div class="w-full h-[calc(100vh-401px)] py-[25px] flex flex-col justify-between items-center border-y border-silver font-roboto" v-else>
-      <p class="text-h3 font-h3 text-silver">Empty cart</p>
+      <p class="text-h1 font-medium text-black">Your shopping cart is empty</p>
+      <img class="h-[200px]" src="../assets/images/cart/cart.svg" alt="">
+      <p class="text-[#454545] text-h2 font-h2">Add products from the catalog</p>
+      <router-link to="/">
+        <button class="w-[267px] h-[49px] bg-navy text-whiteSmoke text-h2 font-h2 rounded-[8px]">Choose a category</button>
+      </router-link>
     </div>
   </div>
 </template>

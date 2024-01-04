@@ -21,20 +21,19 @@
         </div>
       </div>
     </div>
-  </template>
+</template>
   
-  <script lang="ts">
-  import { defineComponent, PropType } from 'vue';
-  import IProduct from '@/interfaces';
-  
-  export default defineComponent({
-    name: 'CartItem',
-    props: {
-      cartItem: {
-        type: Object as PropType<IProduct>,
-        required: true,
-      },
+<script lang="ts">
+import { defineComponent, PropType } from 'vue';
+import IProduct from '@/interfaces';
+
+export default defineComponent({
+  name: 'CartItem',
+  props: {
+    cartItem: {
+      type: Object as PropType<IProduct>,
+      required: true,
     },
-  });
-  </script>
-  
+  },
+});
+</script>
