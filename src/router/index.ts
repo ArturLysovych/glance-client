@@ -28,6 +28,11 @@ const routes: Array<RouteRecordRaw> = [
     component: () => import('../views/OrderingView.vue')
   },
   {
+    path: '/cart/ordering/order-completed',
+    name: 'OrderDoneView',
+    component: () => import('../views/OrderDoneView.vue')
+  },
+  {
     path: '/:pathMatch(.*)*',
     component: () => import('../views/NotFoundView.vue'),
   },

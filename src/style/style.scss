@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 .container {
-    @apply max-w-screen-lg w-[370px] bg-white flex flex-col justify-center items-center;
+    @apply max-w-screen-lg w-full bg-white flex flex-col justify-center items-center;
 }
 
 .px-base {

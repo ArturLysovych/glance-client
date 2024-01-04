@@ -76,7 +76,11 @@ export default defineComponent({
     cart: {
       type: Array as PropType<IProduct[]>,
       required: true
-    }
+    },
+    clearCart: {
+      type: Function as PropType<() => void>,
+      required: true,
+    },
   },
   setup(props) {
     const name = ref('');
@@ -118,11 +122,13 @@ export default defineComponent({
     };
 
     const finishOrder = () => {
-        if (isNameValid.value && isPhoneValid.value && isAddressValid.value) {
-            axios.post('http://localhost:5000/mailer/send-email', getOrderInfo())
-        } else {
-            alert('Enter the data');
-        }
+      if (isNameValid.value && isPhoneValid.value && isAddressValid.value) {
+        axios.post('http://localhost:5000/mailer/send-email', getOrderInfo())
+          props.clearCart();
+          window.location.href = '/cart/ordering/order-completed';
+      } else {
+        alert('Enter the data');
+      }
     };
 
 
