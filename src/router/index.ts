@@ -29,7 +29,7 @@ const routes: Array<RouteRecordRaw> = [
   },
   {
     path: '/cart/ordering/order-completed',
-    name: 'OrderDoneView',
+    name: 'orderDone',
     component: () => import('../views/OrderDoneView.vue')
   },
   {

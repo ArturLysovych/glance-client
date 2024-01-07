@@ -2,8 +2,13 @@
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+    font-family: disket-mono;
+    src: url('../assets/fonts/Disket-Mono-Regular.ttf');
+}
+
 .container {
-    @apply max-w-screen-lg w-full bg-white flex flex-col justify-center items-center;
+    @apply max-w-screen-md w-full bg-white flex flex-col justify-center items-center;
 }
 
 .px-base {
@@ -31,4 +36,29 @@
 input[type="checkbox"] {
     width: 24px;
     height: 24px;
+}
+
+.gradient-animation {
+    background: linear-gradient(69deg, rgba(80,2,99,1) 0%,rgba(255, 255, 255, 1) 25%,rgba(220, 113, 247, 1) 50%, rgba(80,2,99,1)  75%, rgba(38,13,193,1) 100%);
+    -webkit-background-clip: text;
+    background-size: 200% 100%;
+    color: transparent;
+    background-size: 200% 200%;
+    animation: textGradientAnimation 3s linear;
+}
+
+@keyframes textGradientAnimation {
+    0% {
+        background-position: 0% 50%;
+    }
+    70% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 100% 50%;
+    }
+}
+
+.logo-font {
+    font-family: disket-mono;
 }

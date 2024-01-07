@@ -16,7 +16,9 @@
       <span>Choose All <input type="checkbox"></span>
      </div>
     <div class="w-full min-h-[200px] flex flex-col justify-center items-center mt-[20px]" v-if="totalSum>0">
-      <CartItem v-for="cartItem in cart" :key="cartItem.id" :cartItem="cartItem" @remove-from-cart="handleRemoveFromCart" />
+      <CartItem v-for="(cartItem, index) in cart" :key="index" :cartItem="cartItem"
+        @remove-from-cart="() => handleRemoveFromCart(index)"
+      />
     </div>
     <div class="w-full py-[25px] flex flex-col justify-center items-center border-y border-silver font-roboto gap-[8px]" v-if="totalSum>0">
       <h3 class="text-[#454545] text-h4 font-medium">Totally</h3>
@@ -71,8 +73,8 @@ export default defineComponent({
     }
   },
   methods: {
-    handleRemoveFromCart(itemId: string) {
-      this.$emit('remove-from-cart', itemId);
+    handleRemoveFromCart(index: number) {
+      this.$emit('remove-from-cart', index);
     },
     addToCart(product: IProduct) {
       this.$emit('add-to-cart', product);
