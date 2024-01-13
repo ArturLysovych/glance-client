@@ -79,12 +79,11 @@ export default defineComponent({
       }
     };
 
-    setTimeout(() => {
-      isLoading.value = false;
-    }, 2950);
-
     onMounted(() => {
       fetchProducts();
+      setTimeout(() => {
+        isLoading.value = false;
+      }, 2950);
     });
 
     return {

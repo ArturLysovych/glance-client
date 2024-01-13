@@ -29,7 +29,7 @@ const config: Config = {
       },
       colors: {
         navy: '#091D9E',
-        purple: '#750DC5',  
+        purple: '#750DC5',
         lightBlue: '#BCC5FF',
         whiteSmoke: '#F6F6F6',
         silver: '#C1C1C1',
@@ -38,9 +38,6 @@ const config: Config = {
       },
     },
   },
-  plugins: [
-    require('daisyui'),
-  ],
 };
 
 export default config;

@@ -45,6 +45,8 @@
               </div>
               <div class="w-full h-[43px] rounded-[8px] border border-[#454545] flex gap-[12px] items-center justify-start px-[16px]">
                 <input v-model="email" class="w-full border-none outline-none text-black text-[16px] font-light" placeholder="Email" type="email">
+                <img v-if="!isMailValid" src="../assets/images/ordering/warning.svg" alt="">
+                <img v-else src="../assets/images/ordering/ok.svg" alt="">
               </div>
             </div>
             <h2 class="mt-[40px] text-[18px] font-normal text-black">Payment</h2>
@@ -90,6 +92,7 @@ export default defineComponent({
     const addressDisabled = ref(false);
 
     const phoneRegex = /^\+(?:[0-9] ?){6,14}[0-9]$/;
+    const emailRegex = /^.+@.+/;
 
     const isNameValid = computed(() => {
         return name.value.trim() !== '';
@@ -101,6 +104,10 @@ export default defineComponent({
 
     const isAddressValid = computed(() => {
         return address.value.trim() !== '';
+    });
+
+    const isMailValid = computed(() => {
+      return emailRegex.test(email.value);
     });
 
     const ableAddress = () => {
@@ -122,7 +129,7 @@ export default defineComponent({
     };
 
     const finishOrder = () => {
-      if (isNameValid.value && isPhoneValid.value && isAddressValid.value) {
+      if (isNameValid.value && isPhoneValid.value && isAddressValid.value && isMailValid.value) {
         axios.post('http://localhost:5000/mailer/send-email', getOrderInfo())
           props.clearCart();
           window.location.href = '/cart/ordering/order-completed';
@@ -139,6 +146,7 @@ export default defineComponent({
         address,
         isNameValid,
         isPhoneValid,
+        isMailValid,
         ableAddress,
         addressDisabled,
         finishOrder
