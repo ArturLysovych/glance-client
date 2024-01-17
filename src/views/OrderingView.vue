@@ -130,7 +130,7 @@ export default defineComponent({
 
     const finishOrder = () => {
       if (isNameValid.value && isPhoneValid.value && isAddressValid.value && isMailValid.value) {
-        axios.post('http://localhost:5000/mailer/send-email', getOrderInfo())
+        axios.post('https://glance-server.onrender.com/mailer/send-email', getOrderInfo())
           props.clearCart();
           window.location.href = '/cart/ordering/order-completed';
       } else {
