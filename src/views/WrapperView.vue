@@ -1,6 +1,6 @@
 <template>
   <div class="w-full flex items-center justify-center bg-[#222222]">
-    <div class="container overflow-hidden shadow-white shadow-lg">
+    <div class="container overflow-hidden">
       <div class="h-[189px] w-[calc(100%+5px)] bg-whiteSmoke rounded-b-[8px] flex flex-col justify-end items-center px-[16px] py-[28px] gap-[24px] border border-b-silver" v-if="!(href.endsWith('/ordering') || href.endsWith('/order-completed')) && !isLoading">
         <img width="118" height="32" src="@/assets/images/header/glance.svg" alt="">
         <div class="w-full bg-[#DEDEDE] h-[47px] rounded-[8px] p-[16px] flex items-center justify-start gap-[17px]">
